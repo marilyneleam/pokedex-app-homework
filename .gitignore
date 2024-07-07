@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# SvelteKit
+.svelte-kit/
+
+# Miscellaneous
+.DS_Store
+
+# Logs
+npm-debug.log*
+
+# Local IDE config
+.vscode/
+.idea/

@@ -1,8 +1,13 @@
 # Node modules
 node_modules/
 
-# SvelteKit
+# Build outputs
+build/
+dist/
 .svelte-kit/
+
+# Static build output
+public/
 
 # Miscellaneous
 .DS_Store
@@ -13,3 +18,21 @@ npm-debug.log*
 # Local IDE config
 .vscode/
 .idea/
+
+# Vite cache
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Prettier configuration
+.prettierrc
+.prettierignore
+
+# eslint configuration
+eslint.config.js

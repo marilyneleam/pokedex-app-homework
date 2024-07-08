@@ -1,5 +1,4 @@
 <script lang="ts">
-       import { page } from '$app/stores'
        import SearchBar from '$lib/components/SearchBar.svelte'
        import '../app.css'
 </script>

@@ -1,30 +1,38 @@
-module.exports = {
-	root: true,
-	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:svelte/recommended',
-		'prettier'
-	],
-	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'svelte'],
-	parserOptions: {
-		sourceType: 'module',
-		ecmaVersion: 2020,
-		extraFileExtensions: ['.svelte']
-	},
-	env: {
-		browser: true,
-		node: true
-	},
-	overrides: [
-		{
-			files: ['*.svelte'],
-			parser: 'svelte-eslint-parser',
-			parserOptions: {
-				parser: '@typescript-eslint/parser'
-			}
-		}
-	],
-	ignorePatterns: ['build', '.svelte-kit', 'dist']
-};
+import sveltePlugin from 'eslint-plugin-svelte'
+import prettierConfig from 'eslint-config-prettier'
+import eslintPluginPrettier from 'eslint-plugin-prettier'
+import svelteEslintParser from 'svelte-eslint-parser'
+
+export default [
+    {
+        ignores: ['build', '.svelte-kit', 'dist'],
+    },
+    {
+        files: ['*.js'],
+        languageOptions: {
+            ecmaVersion: 2020,
+            sourceType: 'module',
+        },
+        plugins: {
+            prettier: eslintPluginPrettier,
+        },
+        rules: {
+            ...prettierConfig.rules,
+            'prettier/prettier': 'error',
+        },
+    },
+    {
+        files: ['*.svelte'],
+        languageOptions: {
+            parser: svelteEslintParser,
+        },
+        plugins: {
+            svelte: sveltePlugin,
+            prettier: eslintPluginPrettier,
+        },
+        rules: {
+            ...sveltePlugin.configs.recommended.rules,
+            'prettier/prettier': 'error',
+        },
+    },
+]
